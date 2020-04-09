@@ -101,7 +101,7 @@ def main(api):
 		reset=True
 	).add_to(mapp)
 
-	display(mapp
+	display(mapp)
 	test = df_filtered['Skill Count']==62571
 
 	for each in enumerate(test.values):
