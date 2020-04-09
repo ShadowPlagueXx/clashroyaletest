@@ -70,7 +70,7 @@ def main(api):
     df_filtered = pd.DataFrame(df.values,columns=df.columns)
 
     for each in range(len(df_filtered['Skill Count'].values)):
-        if df_filtered.loc[each][2]<np.median(df_filtered['Skill Count'].values):
+        if df_filtered.loc[each][2]<np.percentile(df_filtered['Skill Count'].values, 40):
             df_filtered.drop([each],inplace=True)
 
     df_filtered = df_filtered.reset_index(drop=True)
@@ -89,7 +89,7 @@ def main(api):
 
 	# Now to visualise on map!
 
-    mapp = folium.Map(location=[25,0],zoom_start=1.5)
+    mapp = folium.Map(location=[25,0],zoom_start=1.5,tiles='Stamen Terrain')
 
     r = rf'{pathlib.Path(__file__).parent}\countries.geojson'
                 
